@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Deteksi Maling</string>
+    <string name="title_activity_main">Deteksi Maling</string>
+    <string name="package_name">com.deteksimaling.app</string>
+    <string name="custom_url_scheme">com.deteksimaling.app</string>
+</resources>
