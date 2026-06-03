@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import AddDevice from "./pages/AddDevice";
 import DeviceDetail from "./pages/DeviceDetail";
+import DeviceSimulator from "./pages/DeviceSimulator";
 import Settings from "./pages/Settings";
 import { initNotifications } from "./lib/notifications";
 import { useAlertNotifications } from "./hooks/useAlertNotifications";
@@ -55,6 +56,14 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <DeviceDetail />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/simulate/:deviceId"
+                element={
+                  <ProtectedRoute>
+                    <DeviceSimulator />
                   </ProtectedRoute>
                 }
               />

@@ -60,6 +60,13 @@ export default function AddDevice() {
       });
 
       setSuccess(`Device ${id} berhasil diklaim!`);
+
+      // Beri tahu Flutter WebView untuk subscribe FCM topic device ini
+      // (agar notifikasi alarm diterima meski app di-kill)
+      if (window.FlutterBridge) {
+        window.FlutterBridge.postMessage(`subscribe:${id}`);
+      }
+
       setTimeout(() => nav("/"), 1500);
     } catch (err) {
       console.error(err);

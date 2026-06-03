@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { doc, deleteDoc, onSnapshot } from "firebase/firestore";
 import { ref, onValue, update, set, query, orderByChild, limitToLast } from "firebase/database";
-import { ChevronLeft, Trash2, Wifi, WifiOff, Clock, Power } from "lucide-react";
+import { ChevronLeft, Trash2, Wifi, WifiOff, Clock, Power, FlaskConical } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 import { db, rtdb } from "../lib/firebase";
 import Layout from "../components/Layout";
@@ -51,14 +51,7 @@ export default function DeviceDetail() {
       alert("Gagal hapus: " + err.message);
     }
   };
-function Info({ label, value }) {
-  return (
-    <div className="flex justify-between text-sm">
-      <span className="text-slate-500">{label}</span>
-      <span className="font-medium text-slate-800">{value}</span>
-    </div>
-  );
-}
+
   return (
     <Layout>
       <header className="bg-white border-b border-slate-100 px-4 py-4 flex items-center gap-3 sticky top-0 z-40">
@@ -69,7 +62,10 @@ function Info({ label, value }) {
           <h1 className="text-base font-bold text-slate-900 truncate">{meta?.nickname || deviceId}</h1>
           <p className="text-[11px] text-slate-400 font-mono truncate">{deviceId}</p>
         </div>
-        <button onClick={handleRemove} className="text-red-500 hover:text-red-700">
+        <Link to={`/simulate/${deviceId}`} className="text-amber-500 hover:text-amber-600 p-1" title="Simulator">
+          <FlaskConical size={18} />
+        </Link>
+        <button onClick={handleRemove} className="text-red-500 hover:text-red-700 p-1">
           <Trash2 size={18} />
         </button>
       </header>
