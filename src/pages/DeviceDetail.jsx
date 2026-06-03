@@ -121,6 +121,15 @@ export default function DeviceDetail() {
           <Info label="Uptime" value={`${data.info?.uptime_sec ?? 0}s`} />
         </Section>
 
+        {/* Simulator */}
+        <Link
+          to={`/simulate/${deviceId}`}
+          className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 font-semibold text-sm hover:bg-amber-100 transition"
+        >
+          <FlaskConical size={16} />
+          Buka Simulator Alat
+        </Link>
+
         {/* Riwayat */}
         <Section title="Riwayat Alarm">
           {alerts.length === 0 ? (
